@@ -207,16 +207,6 @@ h1.hero-name em {
   animation: fadeUp 1s 0.2s ease both;
 }
 
-.hero-subline {
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  font-weight: 300;
-  max-width: 520px;
-  line-height: 1.6;
-  margin: 14px auto 0;
-  animation: fadeUp 1s 0.24s ease both;
-}
-
 .hero-pills {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
   margin-top: 36px;
@@ -282,8 +272,7 @@ h1.hero-name em {
   color: var(--ink);
   line-height: 1;
 }
-.stat-label { font-size: 0.
-75rem; color: var(--ink-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em; }
+.stat-label { font-size: 0.75rem; color: var(--ink-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em; }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
@@ -532,7 +521,7 @@ transition: transform 0.6s cubic-bezier(.23,1,.32,1);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.9);
   border-radius: 20px;
-box-shadow: 0 4px 24px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.95);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.95);
   transition: all 0.35s ease;
   text-decoration: none;
   display: block;
@@ -653,8 +642,7 @@ footer {
   font-style: normal;
 }
 .disclaimer-text { font-size: 0.75rem; color: var(--ink-muted); line-height: 1.75; }
-.
-disclaimer-text p { margin-bottom: 12px; }
+.disclaimer-text p { margin-bottom: 12px; }
 .disclaimer-text ul { padding-left: 0; list-style: none; }
 .disclaimer-text ul li { padding-left: 16px; position: relative; margin-bottom: 4px; }
 .disclaimer-text ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
@@ -718,7 +706,6 @@ disclaimer-text p { margin-bottom: 12px; }
 <div class="cursor-ring" id="cursorRing"></div>
 
 <!-- NAV -->
-
 <nav>
   <a href="#services">Услуги</a>
   <a href="#cases">Работы</a>
@@ -727,7 +714,6 @@ disclaimer-text p { margin-bottom: 12px; }
 </nav>
 
 <!-- HERO -->
-
 <section id="hero" style="max-width:none; padding-left:0; padding-right:0;">
   <div class="hero-bg"></div>
   <div class="blob blob-1"></div>
@@ -742,10 +728,6 @@ disclaimer-text p { margin-bottom: 12px; }
 Создаю сайты, фирменные стили и цифровые продукты, которые остаются в памяти.
 </p>
 
-<p class="hero-subline">
-  15-летний программист и дизайнер со стажем 5 лет
-</p>
-
 <div class="hero-pills">
   <span class="pill">🌐 Сайты & интернет-магазины</span>
   <span class="pill">🤖 Telegram-боты</span>
@@ -753,6 +735,7 @@ disclaimer-text p { margin-bottom: 12px; }
   <span class="pill">📸 ИИ фото & видео</span>
   <span class="pill">🖥️ Веб-дизайн (Figma)</span>
   <span class="pill">⚡️ Tilda & кастомный код</span>
+  <span class="pill">🧑5 лет опыта · 50+ проектов</span>
 </div>
 
 <div class="hero-cta">
@@ -763,12 +746,6 @@ disclaimer-text p { margin-bottom: 12px; }
   <a href="https://t.me/stepka_portfolio" target="_blank" class="btn-secondary">
     Смотреть работы →
   </a>
-</div>
-
-<div class="hero-stats">
-  <div class="stat"><div class="stat-num">5</div><div class="stat-label">лет опыта</div></div>
-  <div class="stat"><div class="stat-num">50+</div><div class="stat-label">проектов</div></div>
-  <div class="stat"><div class="stat-num">∞</div><div class="stat-label">итераций к идеалу</div></div>
 </div>
 
   </div>
@@ -834,7 +811,6 @@ disclaimer-text p { margin-bottom: 12px; }
 </section>
 
 <!-- CASES -->
-
 <section id="cases">
   <div class="cases-header">
     <div class="reveal">
@@ -845,7 +821,6 @@ disclaimer-text p { margin-bottom: 12px; }
   </div>
 
   <!-- Logos -->
-
   <div class="reveal" style="margin-bottom:16px;">
     <div class="section-label" style="margin-bottom:12px;">Логотипы</div>
     <div class="logo-showcase">
@@ -867,7 +842,6 @@ disclaimer-text p { margin-bottom: 12px; }
     </div>
   </div>
 <!-- Sites -->
-
   <div class="reveal" style="margin-bottom:12px;margin-top:48px;">
     <div class="section-label">Сайты</div>
   </div>
@@ -881,7 +855,7 @@ disclaimer-text p { margin-bottom: 12px; }
         <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;letter-spacing:0.35em;color:white;font-weight:300;">STARFALL</div>
         <div style="font-size:0.65rem;letter-spacing:0.2em;color:rgba(255,255,255,0.4);margin-top:4px;text-transform:uppercase;">BRAND</div>
       </div>
-      <div class="case-overlay"><div class="case-overlay-text">Открыть сайт <span class="case-arrow">↗️</span></div></div>
+      <div class="case-overlay"><div class="case-overlay-text">Открыть сайт <span class="case-arrow"></span></div></div>
       <div class="case-info">
         <span class="case-tag">Бренд одежды</span>
         <div class="case-title-text">STARFALL BRAND</div>
@@ -892,7 +866,7 @@ disclaimer-text p { margin-bottom: 12px; }
     <!-- HAIERS CLUB -->
     <a href="https://heirsclub.tilda.ws/" target="_blank" class="case-card case-card-2 case-haiers">
       <div class="case-bg"></div>
-      <div class="case-overlay"><div class="case-overlay-text">Открыть сайт <span class="case-arrow dark">↗️</span></div></div>
+      <div class="case-overlay"><div class="case-overlay-text">Открыть сайт <span class="case-arrow dark"></span></div></div>
       <div class="case-info light">
         <span class="case-tag dark">Бренд одежды</span>
         <div class="case-title-text dark">HAIERS CLUB</div>
@@ -903,7 +877,7 @@ disclaimer-text p { margin-bottom: 12px; }
     <!-- УЛИЧНЫЙ СТИЛЬ -->
     <a href="https://g-heartt.tilda.ws/" target="_blank" class="case-card case-card-3 case-ulichny">
       <div class="case-bg"></div>
-      <div class="case-overlay"><div class="case-overlay-text">Открыть сайт <span class="case-arrow">↗️</span></div></div>
+      <div class="case-overlay"><div class="case-overlay-text">Открыть сайт <span class="case-arrow"></span></div></div>
       <div class="case-info">
         <span class="case-tag">Бренд одежды</span>
         <div class="case-title-text">УЛИЧНЫЙ СТИЛЬ</div>
@@ -914,7 +888,6 @@ disclaimer-text p { margin-bottom: 12px; }
 </section>
 
 <!-- REVIEWS -->
-
 <section id="reviews" style="position:relative;">
   <div style="position:absolute;right:0;top:0;width:400px;height:400px;background:radial-gradient(circle,rgba(160,200,180,0.1),transparent 70%);pointer-events:none;z-index:-1;"></div>
 
@@ -928,46 +901,40 @@ disclaimer-text p { margin-bottom: 12px; }
   </p>
 
   <div class="reviews-grid">
-    <a class="review-card reveal" href="https://t.me/stepka_portfolio/14/24" target="_blank" rel="noopener noreferrer">
+    <!-- Отзыв 1 -->
+    <a href="https://t.me/stepka_portfolio/14/24" target="_blank" class="review-card reveal">
       <div class="review-stars">★★★★★</div>
       <div class="review-text">Отличную работу сделал, сайт бомба все работает. Довели все до идеала как и хотел. Приятный человек в общении. Советую!</div>
       <div class="review-author">
-        <div class="review-avatar">К1</div>
-        <div>
-          <div class="review-name">Клиент</div>
-          <div class="review-link">Открыть отзыв в Telegram →</div>
-        </div>
+        <div class="review-avatar">l</div>
+        <div class="review-name">lor1x</div>
       </div>
+      <div class="review-link">Читать в Telegram →</div>
     </a>
-
-    <a class="review-card reveal" href="https://t.me/stepka_portfolio/14/26" target="_blank" rel="noopener noreferrer">
+    <!-- Отзыв 2 -->
+    <a href="https://t.me/stepka_portfolio/14/26" target="_blank" class="review-card reveal">
       <div class="review-stars">★★★★★</div>
       <div class="review-text">За такую цену мне бы никто такого не сделал</div>
       <div class="review-author">
-        <div class="review-avatar">К2</div>
-        <div>
-          <div class="review-name">Клиент</div>
-          <div class="review-link">Открыть отзыв в Telegram →</div>
-        </div>
+        <div class="review-avatar">l</div>
+        <div class="review-name">lor1x</div>
       </div>
+      <div class="review-link">Читать в Telegram →</div>
     </a>
-
-    <a class="review-card reveal" href="https://t.me/stepka_portfolio/14/48" target="_blank" rel="noopener noreferrer">
+    <!-- Отзыв 3 -->
+    <a href="https://t.me/stepka_portfolio/14/48" target="_blank" class="review-card reveal">
       <div class="review-stars">★★★★★</div>
       <div class="review-text">Обратился к Степану для создания сайта в короткие сроки. Быстро откликнулся и сделал решение моей проблемы в очень короткие сроки, рекомендую</div>
       <div class="review-author">
-        <div class="review-avatar">К3</div>
-        <div>
-          <div class="review-name">Клиент</div>
-          <div class="review-link">Открыть отзыв в Telegram →</div>
-        </div>
+        <div class="review-avatar">Р</div>
+        <div class="review-name">Роман</div>
       </div>
+      <div class="review-link">Читать в Telegram →</div>
     </a>
   </div>
 </section>
 
 <!-- PROCESS -->
-
 <section id="process">
   <div class="reveal">
     <div class="section-label">Как это работает</div>
@@ -1020,12 +987,11 @@ disclaimer-text p { margin-bottom: 12px; }
 </section>
 
 <!-- FOOTER -->
-
 <footer>
   <div class="footer-top">
     <div>
       <div class="footer-brand">Stepan</div>
-      <div style="font-size:0.8rem;color:var(--ink-muted);margin-top:6px;">Веб-дизайн & разработка · 5 лет опыта</div>
+      <div style="font-size:0.8rem;color:var(--ink-muted);margin-top:6px;">Веб-дизайн & разработка</div>
     </div>
     <div class="footer-links">
       <a href="https://t.me/stepka_tg" target="_blank">Telegram (заказ)</a>
@@ -1035,7 +1001,6 @@ disclaimer-text p { margin-bottom: 12px; }
   </div>
 
   <!-- DISCLAIMER -->
-
   <div class="disclaimer">
     <div class="disclaimer-title">Обязательно к прочтению — Правовая оговорка</div>
     <div class="disclaimer-text">
@@ -1057,7 +1022,7 @@ disclaimer-text p { margin-bottom: 12px; }
   </div>
 
   <div class="footer-bottom">
-    <div class="footer-copy">© 2024 Stepan Shmuilo · Все права защищены · <span>Сделано с душой</span></div>
+    <div class="footer-copy">© 2024 Stepan · Все права защищены · <span>Сделано с душой</span></div>
     <div style="font-size:0.75rem;color:var(--ink-muted);">Дизайн и разработка — Stepan</div>
   </div>
 </footer>
