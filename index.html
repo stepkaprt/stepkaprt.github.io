@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stepan — Веб-дизайнер & Разработчик</title>
+<title>Stepan — Веб-дизайнер & AI-разработчик</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -24,6 +24,7 @@
   --shadow-soft: 0 4px 32px rgba(0,0,0,0.07);
   --shadow-float: 0 8px 48px rgba(0,0,0,0.11);
   --shadow-deep: 0 20px 80px rgba(0,0,0,0.13);
+  --emet-gold: #d4af37;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +39,6 @@ body {
   cursor: none;
 }
 
-/* Prevent accidental "code lines" from showing */
 pre, code {
   white-space: pre-wrap;
   word-break: break-word;
@@ -69,7 +69,6 @@ pre, code {
 body.cursor-hover .cursor { transform: translate(-50%,-50%) scale(2.2); background: var(--accent); }
 body.cursor-hover .cursor-ring { width: 56px; height: 56px; border-color: var(--accent); }
 
-/* ── NOISE OVERLAY ── */
 body::before {
   content: '';
   position: fixed; inset: 0;
@@ -79,7 +78,6 @@ body::before {
   opacity: 0.5;
 }
 
-/* ── GLASS MIXIN ── */
 .glass {
   background: var(--glass);
   backdrop-filter: blur(24px) saturate(1.6);
@@ -95,7 +93,6 @@ body::before {
   border-radius: 16px;
 }
 
-/* ── NAV ── */
 nav {
   position: fixed; top: 20px; left: 50%;
   transform: translateX(-50%);
@@ -127,7 +124,6 @@ nav a.cta {
 }
 nav a.cta:hover { background: #2a2a28; }
 
-/* ── HERO ── */
 #hero {
   min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -140,13 +136,12 @@ nav a.cta:hover { background: #2a2a28; }
 .hero-bg {
   position: absolute; inset: 0;
   background:
-radial-gradient(ellipse 80% 60% at 50% -10%, rgba(200,184,154,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(200,184,154,0.22) 0%, transparent 70%),
     radial-gradient(ellipse 50% 40% at 80% 80%, rgba(180,200,190,0.12) 0%, transparent 60%),
     radial-gradient(ellipse 60% 50% at 10% 70%, rgba(200,190,220,0.09) 0%, transparent 60%);
   z-index: 0;
 }
 
-/* Floating blobs */
 .blob {
   position: absolute;
   border-radius: 50%;
@@ -226,6 +221,14 @@ h1.hero-name em {
 }
 .pill:hover { background: white; border-color: var(--accent); color: var(--ink); transform: translateY(-2px); }
 
+/* Emet pill special */
+.pill-emet {
+  border-color: var(--emet-gold);
+  background: rgba(212,175,55,0.08);
+  color: #5f4c1c;
+}
+.pill-emet:hover { background: rgba(212,175,55,0.15); border-color: var(--emet-gold); }
+
 .hero-cta {
   display: flex; gap: 12px; justify-content: center;
   margin-top: 48px;
@@ -279,7 +282,6 @@ h1.hero-name em {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll hint */
 .scroll-hint {
   position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -294,7 +296,6 @@ h1.hero-name em {
 }
 @keyframes scrollDrop { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
-/* ── SECTIONS ── */
 section { padding: 120px 24px; max-width: 1200px; margin: 0 auto; }
 section.full-width { max-width: none; }
 
@@ -321,7 +322,6 @@ section.full-width { max-width: none; }
   line-height: 1.7;
 }
 
-/* ── SERVICES ── */
 #services { padding-top: 80px; }
 
 .services-grid {
@@ -371,7 +371,28 @@ section.full-width { max-width: none; }
 }
 .service-desc { font-size: 0.87rem; color: var(--ink-muted); line-height: 1.65; }
 
-/* ── CASES ── */
+/* Стиль карточки бренда Emet в услугах */
+.service-card.emet-card {
+  border-left: 3px solid var(--emet-gold);
+}
+.emet-sub {
+  font-size: 0.8rem;
+  color: var(--emet-gold);
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.emet-badge {
+  background: var(--emet-gold);
+  color: #1e1e1e;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
 .cases-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
 
 .cases-grid {
@@ -401,33 +422,25 @@ section.full-width { max-width: none; }
 .case-card-3 { grid-column: 1/5; min-height: 300px; }
 .case-card-4 { grid-column: 5/9; min-height: 300px; }
 .case-card-5 { grid-column: 9/13; min-height: 300px; }
+.case-card-emet { grid-column: 1/13; min-height: 240px; margin-top: 8px; }
 
 .case-bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-transition: transform 0.6s cubic-bezier(.23,1,.32,1);
+  transition: transform 0.6s cubic-bezier(.23,1,.32,1);
 }
 .case-card:hover .case-bg { transform: scale(1.06); }
 
-/* Case backgrounds */
 .case-starfall .case-bg { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%); }
-.case-starfall .case-logo-preview {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: white;
-  letter-spacing: 0.3em; text-align: center;
-}
-.case-starfall .case-logo-preview span {
-  display: block; font-size: 3rem; margin-bottom: 8px; opacity: 0.9;
-}
-
 .case-haiers .case-bg { background: linear-gradient(135deg, #f8f6f2 0%, #ede9e1 100%); }
 .case-ulichny .case-bg { background: linear-gradient(135deg, #1c1c1c 0%, #2d2d2d 100%); }
 .case-lockcup .case-bg { background: linear-gradient(145deg, #4a3520 0%, #6b4d2e 50%, #3d2910 100%); }
 .case-rise .case-bg { background: linear-gradient(135deg, #0a0a0a 0%, #141414 100%); }
 
-.case-demo-text {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  text-align: center; pointer-events: none;
+/* Emet case background */
+.case-emet .case-bg {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2416 50%, #1f1a0f 100%);
+  background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Ctext x="10" y="50" font-family="serif" font-size="40" fill="rgba(212,175,55,0.12)"%3Eא%3C/text%3E%3C/svg%3E');
 }
 
 .case-overlay {
@@ -468,9 +481,8 @@ transition: transform 0.6s cubic-bezier(.23,1,.32,1);
 .case-arrow { display: inline-block; transition: transform 0.3s ease; color: white; font-size: 1.2rem; }
 .case-arrow.dark { color: var(--ink); }
 
-/* Logo showcase */
 .logo-showcase {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
   margin-top: 16px;
 }
 .logo-item {
@@ -491,13 +503,15 @@ transition: transform 0.6s cubic-bezier(.23,1,.32,1);
 .logo-starfall { background-image: url("./логотипы/starfall.jpg"); }
 .logo-lockcup { background-image: url("./логотипы/Lock%20Cup.jpg"); }
 .logo-rise { background-image: url("./логотипы/Rise.jpg"); }
+.logo-emet { background: #1e1a14; color: var(--emet-gold); border-color: var(--emet-gold); }
+.logo-emet .emet-hebrew { font-size: 2.8rem; font-weight: 300; line-height: 1; }
+.logo-emet .emet-text { font-size: 0.65rem; letter-spacing: 0.2em; margin-top: -4px; }
 .logo-item > * { display: none; }
 .logo-star { font-size: 2rem; color: rgba(255,255,255,0.9); }
 .logo-name { font-size: 0.9rem; letter-spacing: 0.4em; }
 .logo-bird { font-size: 2.5rem; }
 .logo-r { font-size: 4rem; color: rgba(255,255,255,0.85); }
 
-/* ── REVIEWS ── */
 #reviews { background: none; }
 .reviews-quote {
   font-family: 'Cormorant Garamond', serif;
@@ -552,7 +566,6 @@ transition: transform 0.6s cubic-bezier(.23,1,.32,1);
 .review-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); }
 .review-link { font-size: 0.72rem; color: var(--ink-muted); }
 
-/* ── PROCESS ── */
 .process-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px; margin-top: 56px; counter-reset: step;
@@ -579,7 +592,6 @@ transition: transform 0.6s cubic-bezier(.23,1,.32,1);
 .process-step-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
 .process-step-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; }
 
-/* ── CTA SECTION ── */
 #contact {
   text-align: center;
   padding: 100px 24px 120px;
@@ -608,7 +620,6 @@ transition: transform 0.6s cubic-bezier(.23,1,.32,1);
 .cta-glass .section-sub { margin: 0 auto 36px; }
 .cta-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-/* ── FOOTER ── */
 footer {
   padding: 60px 24px;
   border-top: 1px solid var(--border);
@@ -655,7 +666,6 @@ footer {
 .footer-copy { font-size: 0.78rem; color: var(--ink-muted); }
 .footer-copy span { color: var(--accent); }
 
-/* ── FLOATING BLOB BG FOR SECTIONS ── */
 .section-blob {
   position: absolute;
   border-radius: 50%;
@@ -664,7 +674,6 @@ footer {
   z-index: -1;
 }
 
-/* ── REVEAL ON SCROLL ── */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -672,13 +681,12 @@ footer {
 }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* ── MOBILE ── */
 @media (max-width: 768px) {
   nav { width: calc(100% - 32px); }
   nav a { padding: 7px 12px; font-size: 0.75rem; }
   .cases-grid { display: flex; flex-direction: column; }
   .case-card { min-height: 220px !important; }
-  .logo-showcase { grid-template-columns: repeat(3,1fr); }
+  .logo-showcase { grid-template-columns: repeat(2,1fr); }
   .footer-top { flex-direction: column; }
   .cta-glass { padding: 48px 32px; }
   .hero-stats { gap: 28px; }
@@ -688,13 +696,11 @@ footer {
   section { padding: 80px 20px; }
 }
 
-/* ── LINK DIVIDER IN PROCESS ── */
 .process-connector {
   display: flex; align-items: center; justify-content: center;
   color: var(--ink-muted); font-size: 1.2rem; padding-top: 40px;
 }
 
-/* Telegram icon */
 .tg-icon { display: inline-flex; align-items: center; gap: 6px; }
 .tg-icon svg { width: 16px; height: 16px; }
 </style>
@@ -722,32 +728,30 @@ footer {
 
   <div class="hero-content">
     <div class="hero-badge"><span class="dot"></span> Открыт для заказов</div>
-<h1 class="hero-name">STEPAN<br><em>CODE & DESIGN</em></h1>
+    <h1 class="hero-name">STEPAN<br><em>CODE & AI</em></h1>
+    <p class="hero-tagline">
+      Создаю сайты, ботов и AI-решения. Владелец христианского бренда Emet (אמת) — «истина». Скоро открытие.
+    </p>
 
-<p class="hero-tagline">
-Создаю сайты, фирменные стили и цифровые продукты, которые остаются в памяти.
-</p>
+    <div class="hero-pills">
+      <span class="pill">🌐 Сайты & интернет-магазины</span>
+      <span class="pill">🤖 Telegram-боты</span>
+      <span class="pill">🧠 AI-автоматизация</span>
+      <span class="pill">🎨 Логотипы & брендинг</span>
+      <span class="pill">📸 ИИ фото & видео</span>
+      <span class="pill">🖥️ Веб-дизайн (Figma)</span>
+      <span class="pill pill-emet">✝️ Emet (אמת) · soon</span>
+    </div>
 
-<div class="hero-pills">
-  <span class="pill">🌐 Сайты & интернет-магазины</span>
-  <span class="pill">🤖 Telegram-боты</span>
-  <span class="pill">🎨 Логотипы & брендинг</span>
-  <span class="pill">📸 ИИ фото & видео</span>
-  <span class="pill">🖥️ Веб-дизайн (Figma)</span>
-  <span class="pill">⚡️ Tilda & кастомный код</span>
-  <span class="pill">🧑5 лет опыта · 50+ проектов</span>
-</div>
-
-<div class="hero-cta">
-  <a href="https://t.me/stepka_tg" target="_blank" class="btn-primary">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.598l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.96.961z"/></svg>
-    Написать в Telegram
-  </a>
-  <a href="https://t.me/stepka_portfolio" target="_blank" class="btn-secondary">
-    Смотреть работы →
-  </a>
-</div>
-
+    <div class="hero-cta">
+      <a href="https://t.me/stepka_tg" target="_blank" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.598l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.96.961z"/></svg>
+        Написать в Telegram
+      </a>
+      <a href="https://t.me/stepka_portfolio" target="_blank" class="btn-secondary">
+        Смотреть работы →
+      </a>
+    </div>
   </div>
 
   <div class="scroll-hint">
@@ -763,49 +767,52 @@ footer {
   <div class="reveal">
     <div class="section-label">Что я делаю</div>
     <h2 class="section-title">Полный спектр<br>диджитал-услуг</h2>
-    <p class="section-sub">От концепции до финального продукта — работаю комплексно или точечно, в зависимости от вашей задачи.</p>
+    <p class="section-sub">От концепции до финального продукта — работаю комплексно или точечно.</p>
   </div>
 
   <div class="services-grid">
     <div class="service-card reveal">
       <div class="service-icon">🌐</div>
       <div class="service-name">Сайты & лендинги</div>
-      <p class="service-desc">Разрабатываю на чистом коде, Tilda, Figma. Продающие, быстрые, адаптивные сайты с индивидуальным дизайном под вашу нишу.</p>
+      <p class="service-desc">Разрабатываю на чистом коде, Tilda, Figma. Продающие, быстрые, адаптивные сайты.</p>
     </div>
     <div class="service-card reveal">
       <div class="service-icon">🛍️</div>
       <div class="service-name">Интернет-магазины</div>
-      <p class="service-desc">Каталог, корзина, оплата — всё под ключ. Кастомный код или платформы. Удобно покупателям, удобно владельцу.</p>
+      <p class="service-desc">Каталог, корзина, оплата — всё под ключ. Кастомный код или платформы.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🧠</div>
+      <div class="service-name">AI-автоматизация</div>
+      <p class="service-desc">Интегрирую нейросети в бизнес-процессы: чат-боты с ИИ, генерация контента, автоматизация рутины.</p>
     </div>
     <div class="service-card reveal">
       <div class="service-icon">🎨</div>
       <div class="service-name">Логотипы & брендинг</div>
-      <p class="service-desc">Создаю визуальную идентичность, которую запоминают. Логотипы, гайдлайны, фирменный стиль для вашего бизнеса.</p>
+      <p class="service-desc">Создаю визуальную идентичность. Логотипы, гайдлайны, фирменный стиль.</p>
     </div>
     <div class="service-card reveal">
       <div class="service-icon">🤖</div>
       <div class="service-name">Telegram-боты</div>
-      <p class="service-desc">Боты для продаж, рассылок, автоматизации и поддержки. Сложная логика, красивый интерфейс, надёжная работа.</p>
+      <p class="service-desc">Боты для продаж, рассылок, автоматизации. Сложная логика, надёжная работа.</p>
     </div>
     <div class="service-card reveal">
       <div class="service-icon">📸</div>
       <div class="service-name">ИИ фотосессии</div>
-      <p class="service-desc">Профессиональные фото с помощью нейросетей. Портреты, продукт, контент для соцсетей без фотостудии.</p>
+      <p class="service-desc">Профессиональные фото с помощью нейросетей. Портреты, контент для соцсетей.</p>
     </div>
     <div class="service-card reveal">
       <div class="service-icon">🎬</div>
       <div class="service-name">Монтаж & видео</div>
-      <p class="service-desc">Видеоролики, рилсы, клипы для соцсетей. Динамика, цветокоррекция, саундтрек — финальный продукт под ключ.</p>
+      <p class="service-desc">Видеоролики, рилсы, клипы для соцсетей. Динамика, цветокоррекция.</p>
     </div>
-    <div class="service-card reveal">
-      <div class="service-icon">🖥️</div>
-      <div class="service-name">Веб-дизайн в Figma</div>
-      <p class="service-desc">Проектирую интерфейсы в Figma с чистыми прототипами, компонентами и дизайн-системой для вашей команды разработки.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">✨</div>
-      <div class="service-name">Доработки & правки</div>
-      <p class="service-desc">Улучшаю существующие сайты, меняю дизайн, добавляю функции. Быстро и без кардинальной переделки.</p>
+    <div class="service-card reveal emet-card">
+      <div class="service-icon">✝️</div>
+      <div class="service-name">Emet (אמת) — бренд одежды</div>
+      <p class="service-desc">Христианский бренд с глубоким смыслом. Истина в каждой детали.</p>
+      <div class="emet-sub">
+        <span class="emet-badge">SOON</span> Открытие скоро
+      </div>
     </div>
   </div>
 </section>
@@ -834,20 +841,26 @@ footer {
       <div class="logo-item logo-rise">
         <div class="logo-r">R</div>
       </div>
+      <div class="logo-item logo-emet">
+        <div class="emet-hebrew">אמת</div>
+        <div class="emet-text">EMET</div>
+        <div style="position:absolute; bottom:8px; right:10px; font-size:0.5rem; background:var(--emet-gold); color:#111; padding:2px 6px; border-radius:20px;">soon</div>
+      </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:4px;">
       <div style="text-align:center;font-size:0.72rem;color:var(--ink-muted);">STARFALL Brand</div>
       <div style="text-align:center;font-size:0.72rem;color:var(--ink-muted);">Lock Cup</div>
       <div style="text-align:center;font-size:0.72rem;color:var(--ink-muted);">Rise</div>
+      <div style="text-align:center;font-size:0.72rem;color:var(--emet-gold);">Emet · скоро</div>
     </div>
   </div>
-<!-- Sites -->
+
+  <!-- Sites -->
   <div class="reveal" style="margin-bottom:12px;margin-top:48px;">
     <div class="section-label">Сайты</div>
   </div>
 
   <div class="cases-grid reveal">
-    <!-- STARFALL -->
     <a href="https://starfallclo.ru" target="_blank" class="case-card case-card-1 case-starfall">
       <div class="case-bg"></div>
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);text-align:center;z-index:1;">
@@ -859,31 +872,46 @@ footer {
       <div class="case-info">
         <span class="case-tag">Бренд одежды</span>
         <div class="case-title-text">STARFALL BRAND</div>
-        <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:4px;">Продающий сайт · starfallclo.ru</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:4px;">starfallclo.ru</div>
       </div>
     </a>
 
-    <!-- HAIERS CLUB -->
     <a href="https://heirsclub.tilda.ws/" target="_blank" class="case-card case-card-2 case-haiers">
       <div class="case-bg"></div>
       <div class="case-overlay"><div class="case-overlay-text">Открыть сайт <span class="case-arrow dark"></span></div></div>
       <div class="case-info light">
         <span class="case-tag dark">Бренд одежды</span>
         <div class="case-title-text dark">HAIERS CLUB</div>
-        <div style="font-size:0.78rem;color:rgba(0,0,0,0.55);margin-top:4px;">Минималистичный продающий сайт · heirsclub.tilda.ws</div>
+        <div style="font-size:0.78rem;color:rgba(0,0,0,0.55);margin-top:4px;">heirsclub.tilda.ws</div>
       </div>
     </a>
 
-    <!-- УЛИЧНЫЙ СТИЛЬ -->
     <a href="https://g-heartt.tilda.ws/" target="_blank" class="case-card case-card-3 case-ulichny">
       <div class="case-bg"></div>
       <div class="case-overlay"><div class="case-overlay-text">Открыть сайт <span class="case-arrow"></span></div></div>
       <div class="case-info">
         <span class="case-tag">Бренд одежды</span>
         <div class="case-title-text">УЛИЧНЫЙ СТИЛЬ</div>
-        <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:4px;">Сайт за очень короткие сроки · g-heartt.tilda.ws</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:4px;">g-heartt.tilda.ws</div>
       </div>
     </a>
+
+    <!-- Emet soon case -->
+    <div class="case-card case-card-emet case-emet" style="cursor:default;">
+      <div class="case-bg"></div>
+      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; z-index:2;">
+        <div style="font-size:4.5rem; font-family:'Cormorant Garamond',serif; color:var(--emet-gold); opacity:0.9; line-height:1;">אמת</div>
+        <div style="font-size:1.4rem; letter-spacing:0.6em; color:white; margin-top:-8px; font-weight:300;">EMET</div>
+        <div style="margin-top:12px; display:flex; gap:12px; justify-content:center;">
+          <span style="background:var(--emet-gold); color:#111; padding:4px 14px; border-radius:40px; font-size:0.7rem; font-weight:600;">СКОРО ОТКРЫТИЕ</span>
+        </div>
+      </div>
+      <div class="case-info" style="background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+        <span class="case-tag" style="background:var(--emet-gold); color:#111;">Собственный бренд</span>
+        <div class="case-title-text" style="color:white;">Emet — христианская одежда</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:4px;">Истина в стиле · скоро запуск</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -901,7 +929,6 @@ footer {
   </p>
 
   <div class="reviews-grid">
-    <!-- Отзыв 1 -->
     <a href="https://t.me/stepka_portfolio/14/24" target="_blank" class="review-card reveal">
       <div class="review-stars">★★★★★</div>
       <div class="review-text">Отличную работу сделал, сайт бомба все работает. Довели все до идеала как и хотел. Приятный человек в общении. Советую!</div>
@@ -911,7 +938,6 @@ footer {
       </div>
       <div class="review-link">Читать в Telegram →</div>
     </a>
-    <!-- Отзыв 2 -->
     <a href="https://t.me/stepka_portfolio/14/26" target="_blank" class="review-card reveal">
       <div class="review-stars">★★★★★</div>
       <div class="review-text">За такую цену мне бы никто такого не сделал</div>
@@ -921,7 +947,6 @@ footer {
       </div>
       <div class="review-link">Читать в Telegram →</div>
     </a>
-    <!-- Отзыв 3 -->
     <a href="https://t.me/stepka_portfolio/14/48" target="_blank" class="review-card reveal">
       <div class="review-stars">★★★★★</div>
       <div class="review-text">Обратился к Степану для создания сайта в короткие сроки. Быстро откликнулся и сделал решение моей проблемы в очень короткие сроки, рекомендую</div>
@@ -946,27 +971,27 @@ footer {
     <div class="process-step reveal">
       <div class="process-num">01</div>
       <div class="process-step-title">Брифинг</div>
-      <p class="process-step-desc">Обсуждаем задачу, цели и пожелания. Составляю ТЗ и смету — всё фиксируем.</p>
+      <p class="process-step-desc">Обсуждаем задачу, цели и пожелания. Составляю ТЗ и смету.</p>
     </div>
     <div class="process-step reveal">
       <div class="process-num">02</div>
       <div class="process-step-title">Концепция</div>
-      <p class="process-step-desc">Разрабатываю визуальное направление, показываю референсы и первые идеи.</p>
+      <p class="process-step-desc">Разрабатываю визуальное направление, показываю референсы.</p>
     </div>
     <div class="process-step reveal">
       <div class="process-num">03</div>
       <div class="process-step-title">Дизайн</div>
-      <p class="process-step-desc">Создаю макеты в Figma. Обсуждаем и согласовываем. Правки включены.</p>
+      <p class="process-step-desc">Создаю макеты в Figma. Обсуждаем и согласовываем.</p>
     </div>
     <div class="process-step reveal">
       <div class="process-num">04</div>
       <div class="process-step-title">Разработка</div>
-      <p class="process-step-desc">Верстаю и запускаю. Кастомный код, Tilda или готовая платформа — по задаче.</p>
+      <p class="process-step-desc">Верстаю и запускаю. Кастомный код, Tilda или AI-интеграции.</p>
     </div>
     <div class="process-step reveal">
       <div class="process-num">05</div>
       <div class="process-step-title">Сдача</div>
-      <p class="process-step-desc">Тестирую, передаю проект. Показываю как пользоваться. Поддержка после сдачи.</p>
+      <p class="process-step-desc">Тестирую, передаю проект. Поддержка после сдачи.</p>
     </div>
   </div>
 </section>
@@ -982,7 +1007,7 @@ footer {
         <a href="https://t.me/stepka_tg" target="_blank" class="btn-primary">Написать в Telegram</a>
         <a href="https://t.me/stepka_portfolio" target="_blank" class="btn-secondary">Смотреть работы →</a>
       </div>
-  </div>
+    </div>
   </div>
 </section>
 
@@ -991,7 +1016,8 @@ footer {
   <div class="footer-top">
     <div>
       <div class="footer-brand">Stepan</div>
-      <div style="font-size:0.8rem;color:var(--ink-muted);margin-top:6px;">Веб-дизайн & разработка</div>
+      <div style="font-size:0.8rem;color:var(--ink-muted);margin-top:6px;">Веб-дизайн & AI-разработка</div>
+      <div style="font-size:0.7rem;color:var(--emet-gold);margin-top:4px;">✝️ Emet (אמת) — истина</div>
     </div>
     <div class="footer-links">
       <a href="https://t.me/stepka_tg" target="_blank">Telegram (заказ)</a>
@@ -1000,7 +1026,6 @@ footer {
     </div>
   </div>
 
-  <!-- DISCLAIMER -->
   <div class="disclaimer">
     <div class="disclaimer-title">Обязательно к прочтению — Правовая оговорка</div>
     <div class="disclaimer-text">
@@ -1022,7 +1047,7 @@ footer {
   </div>
 
   <div class="footer-bottom">
-    <div class="footer-copy">© 2024 Stepan · Все права защищены · <span>Сделано с душой</span></div>
+    <div class="footer-copy">© 2026 Stepan · Все права защищены · <span>Сделано с душой</span></div>
     <div style="font-size:0.75rem;color:var(--ink-muted);">Дизайн и разработка — Stepan</div>
   </div>
 </footer>
